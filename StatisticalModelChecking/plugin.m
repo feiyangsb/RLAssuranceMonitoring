@@ -19,7 +19,12 @@ while(1)
     %waiting for result
     while(1)
         if (t.BytesAvailable ~= 0)
+            number_data = fread(t,1,'single');
+            while (t.BytesAvailable ~= number_data*4)
+                t.BytesAvailable;
+            end
             result = fread(t, t.BytesAvailable/4, 'single');
+            length(result)
             distance = result(1:length(result)/4);
             velocity = result(length(result)/4+1:length(result)/4 * 2);
             acceleration = result(length(result)/4*2+1:length(result)/4 * 3);

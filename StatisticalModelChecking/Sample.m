@@ -1,4 +1,4 @@
-function x = Sample()
+function [Dist, Vel, Acc, TTC_r] = Sample()
     dt = 1/15;
     clear d0
     clear v0
@@ -17,11 +17,8 @@ function x = Sample()
     S0 = [d0, v0];
 
     %%Create the state space for braking system
-    %getSimulinkBlockHandle('RL_)
     state_space_handle = getSimulinkBlockHandle('RL_CARLA_BRAKE_SYSTEM/Discrete State-Space',true);
-    %et_param('RL_CARLA_BRAKE_SYSTEM/Discrete State-Space/', 'ObjectParameters')
     set_param(state_space_handle,'InitialCondition',mat2str(S0));
-    %set_param('S0',S0);
     sim('RL_CARLA_BRAKE_SYSTEM');
 
     Dist = States.data(:,1);

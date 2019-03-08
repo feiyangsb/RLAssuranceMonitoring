@@ -1,13 +1,17 @@
 clear;
 
 
-d = load('distance_simulink.mat');
+%d = load('distance_simulink.mat');
+d = load('distance.mat');
 d = d.distance;
-v = load('velocity_simulink.mat');
+%v = load('velocity_simulink.mat');
+v = load('velocity.mat');
 v = v.velocity*3.6;
-a = load('acceleration_simulink.mat');
+%a = load('acceleration_simulink.mat');
+a = load('acceleration.mat');
 a = a.acceleration;
-ttc_inverse = load('ttc_inverse_simulink.mat');
+%ttc_inverse = load('ttc_inverse_simulink.mat');
+ttc_inverse = load('ttc_inverse.mat');
 ttc_inverse = ttc_inverse.ttc_r;
 
 t = linspace(0,length(d)-1,length(d))/15;
@@ -35,5 +39,5 @@ ylim([0 1]);
 ylabel('TTC^{-1}(s^{-1})');
 xlabel('Time(s)');
 
-% ylabel('TTC(s)');
-sgtitle('RL Braking System (SIMULINK)')
+%sgtitle('RL Braking System (SIMULINK)')
+sgtitle('RL Braking System (CARLA)')

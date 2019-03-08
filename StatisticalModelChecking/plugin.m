@@ -24,7 +24,6 @@ while(1)
                 t.BytesAvailable;
             end
             result = fread(t, t.BytesAvailable/4, 'single');
-            length(result)
             distance = result(1:length(result)/4);
             velocity = result(length(result)/4+1:length(result)/4 * 2);
             acceleration = result(length(result)/4*2+1:length(result)/4 * 3);

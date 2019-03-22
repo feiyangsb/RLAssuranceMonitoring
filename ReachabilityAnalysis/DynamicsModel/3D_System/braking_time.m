@@ -12,3 +12,6 @@ hold on
 x = linspace(0,120,120);
 y = 0.022045*x;
 plot(x,y,'b');
+xlabel('Vel(km/h)')
+ylabel('Time(S)')
+sgtitle('Braking Time')

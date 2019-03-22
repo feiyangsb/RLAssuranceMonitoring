@@ -6,12 +6,19 @@ for i = 1:n
     v_out(i) = v(2)*3.6;
     time(i) = (length(find(v>=0))-4)/15; 
 end
-plot(v_out, time, 'ro');
+
 mdl = LinearModel.fit(v_out, time);
-hold on
 x = linspace(0,120,120);
 y = 0.022045*x;
+step = y/0.15;
+
+subplot(2,1,1);
+plot(v_out, time, 'ro');
+hold on
 plot(x,y,'b');
-xlabel('Vel(km/h)')
 ylabel('Time(S)')
+subplot(2,1,2)
+plot(x,step,'b')
+ylabel('Steps')
+xlabel('Vel(km/h)')
 sgtitle('Braking Time')

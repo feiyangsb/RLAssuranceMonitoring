@@ -32,9 +32,9 @@ while(True):
     dist_tuple = data_set[0:number_data/4]
     vel_tuple = data_set[number_data/4:2*number_data/4]
     acc_tuple = data_set[2*number_data/4:3*number_data/4]
-    ttc_inverse_tuple = data_set[3*number_data/4:number_data]
+    reward_tuple = data_set[3*number_data/4:number_data]
 
-    if (all(i<2.0 for i in ttc_inverse_tuple)):
+    if (all(i>-0.1 for i in reward_tuple)):
         print("This experiment satisfies the specification")
         x = x+1
     else:

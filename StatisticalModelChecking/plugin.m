@@ -27,11 +27,11 @@ while(1)
             distance = result(1:length(result)/4);
             velocity = result(length(result)/4+1:length(result)/4 * 2);
             acceleration = result(length(result)/4*2+1:length(result)/4 * 3);
-            ttc_r = result(length(result)/4*3+1:length(result)/4 * 4);
+            reward = result(length(result)/4*3+1:length(result)/4 * 4);
             break;
         end
     end
-    if (all(ttc_r < 2.0)) %satisfying the specification
+    if (all(reward > -0.1)) %satisfying the specification
         x=x+1;
     end
     n=n+1;

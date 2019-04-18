@@ -3,10 +3,10 @@ delta = 0.01; %half interval size
 c = 0.99; %interval coefficient
 alpha = 1;
 beta = 1;
-n = 0;
-x = 0;
-p_list = [];
-gamma_list = [];
+%n = 0;
+%x = 0;
+%p_list = [];
+%gamma_list = [];
 
 sampleCommand = "Sample";
 t = tcpip('localhost', 3389, 'NetworkRole', 'client', 'InputBufferSize', 3000);
